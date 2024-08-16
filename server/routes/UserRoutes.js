@@ -25,7 +25,7 @@ router.post('/users/register', async (req, res) => {
 });
 
 
-router.post('/users/login', async (req, res) => {
+router.post('/login', async (req, res) => {
   try {
     const { email, password } = req.body;
 
@@ -46,7 +46,7 @@ router.post('/users/login', async (req, res) => {
       expiresIn: '1h',
     });
 
-    res.status(200).json({ token, user });
+    res.status(200).json({ token });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
